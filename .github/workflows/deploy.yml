@@ -1,13 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Deploy web app to Azure Static Web Apps
-
-env:
-  APP_LOCATION: "/" # location of your client code
-  APP_ARTIFACT_LOCATION: "src" # location of client code build output
+name: Azure Static Web Apps for Static Sites
 
 on:
   push:
@@ -37,7 +28,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GH_PAT_BOT }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          app_location: "/src" # App source code path
+          app_location: "/build" # App source code path
           skip_app_build: true
 
   close:
